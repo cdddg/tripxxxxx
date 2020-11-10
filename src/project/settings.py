@@ -24,6 +24,7 @@ SECRET_KEY = 'p=0x^61+rtaz+shcu#1!7txa90(m5iqw&01^-=(henq0^7or$)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ADMIN_ENABLED = False
 
 ALLOWED_HOSTS = []
 
@@ -31,15 +32,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    # 'django.contrib.admin',
+    # 'django.contrib.auth',
+    # 'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
     'services',
-    'orm',
+    'orm.base',
+    'orm.member',
+    'orm.tour',
+    'orm.supplier',
 ]
 
 
