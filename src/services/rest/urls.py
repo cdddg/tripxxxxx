@@ -1,8 +1,8 @@
 from django.urls import include
 from django.urls import path
 
-from . import tour
+from ..rest import _tmp
 
 urlpatterns = [
-    path("tour/", include(tour.urls)),
+    path("tmp/", include(_tmp.urls)),
 ]

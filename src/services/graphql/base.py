@@ -3,9 +3,18 @@ import datetime
 # from django.conf import settings
 import graphene
 from graphene.types import Scalar
+from core import constants as _constants
+import types
 
 # from django_graphql_ratelimit import ratelimit as origin_ratelimit
 from graphql.language import ast
+import time
+
+constants = types.SimpleNamespace()
+constants.GenderType = graphene.Enum.from_enum(_constants.GenderType)
+constants.PlatformType = graphene.Enum.from_enum(_constants.PlatformType)
+constants.TourGroupLocationOpition = graphene.Enum.from_enum(_constants.TourGroupLocationOpition)
+constants.TourGroupInputOrderBy = graphene.Enum.from_enum(_constants.TourGroupInputOrderBy)
 
 
 class TimeStampScalar(Scalar):
@@ -13,6 +22,8 @@ class TimeStampScalar(Scalar):
     def serialize(t):
         if isinstance(t, int):
             return t
+        if type(t) == datetime.date:
+            return round(time.mktime(t.timetuple()))
         return round(t.timestamp())
 
     @classmethod

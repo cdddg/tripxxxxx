@@ -1,6 +1,11 @@
 import enum
 
 
+class GenderType(enum.IntEnum):
+    UNKNOWN = 0
+    MALE = 1
+    FEMALE = 2
+
 
 class PlatformType(enum.IntEnum):
     TRIPRESSO = 0
@@ -37,3 +42,28 @@ class TourGroupLocationOpition(enum.IntEnum):
 
     TAIPEI = 2001
     TAINAN = 2002
+
+
+class TourGroupTag(enum.Enum):
+    LATE_BACK = 'LATE_BACK'
+    EARLY_GO = 'EARLY_GO'
+    DIRECT_FLIGHT = 'DIRECT_FLIGHT'
+    HOT_TOP = 'HOT_TOP'
+    NO_SHOP = 'NO_SHOP'
+    DOMESTIC_TRAVEL = 'DOMESTIC_TRAVEL'
+    TRIPLE_STIMULUS_VOUCHER = 'TRIPLE_STIMULUS_VOUCHER'
+
+
+class Currency(enum.IntEnum):
+    TWD = 0
+
+
+class TourGroupInputOrderBy(enum.Enum):
+    PRICE_ASC = 'PRICE_ASC'
+    PRICE_DESC = 'PRICE_DESC'
+    SCORE_ASC = 'SCORE_ASC'
+    SCORE_DESC = 'SCORE_DESC'
+
+    def parse(self):
+        orderby, sorting = self._name_.split('_')
+        return orderby.lower(), sorting

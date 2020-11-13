@@ -1,11 +1,12 @@
 import graphene
-from . import base, tour
+from . import base, tour, member
 
 
 class Query(
     base.HelloWorldNode,
     base.CurrentTimeNode,
-    # tour.queries.Query,
+    tour.queries.Query,
+    member.queries.Query,
     graphene.ObjectType,
 ):
     pass

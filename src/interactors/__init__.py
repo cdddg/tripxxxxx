@@ -1,1 +1,1 @@
-from . import base, tour
+from . import base, member, supplier, tour
