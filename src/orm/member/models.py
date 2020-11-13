@@ -1,9 +1,10 @@
-from ..base import models as base
-
 import uuid
 
 from django.db import models
+
 from core import constants
+
+from ..base import models as base
 
 
 class MemberBase(base.BaseModel):
@@ -20,13 +21,13 @@ class MemberBase(base.BaseModel):
     tripresso_coin = models.IntegerField(default=0)
 
     class Meta:
-        db_table = 'member_base'
+        db_table = "member_base"
 
 
 class MemberFavorite(base.BaseModel):
     id = models.CharField(primary_key=True, default=uuid.uuid4, editable=False, max_length=255)
     member = models.ForeignKey(MemberBase, on_delete=models.CASCADE, null=False)
-    tour_group = models.ForeignKey('tour.TourGroupBase', on_delete=models.CASCADE, null=False)
+    tour_group = models.ForeignKey("tour.TourGroupBase", on_delete=models.CASCADE, null=False)
 
     class Meta:
-        db_table = 'member_favorite'
+        db_table = "member_favorite"

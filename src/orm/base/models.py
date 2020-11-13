@@ -4,12 +4,12 @@
 # import uuid
 # from core import constants
 
-from django.db import models
 from datetime import datetime
+
+from django.db import models
 
 
 class BaseManager(models.Manager):
-
     def bulk_insert(self, *args, **kwargs):
         return super().bulk_create(*args, **kwargs)
 
@@ -40,12 +40,12 @@ class BaseManager(models.Manager):
 
     def sort(self, sort_type: str, **kwargs):
         sort_type = sort_type.upper()
-        if sort_type == 'ASC':
+        if sort_type == "ASC":
             return self
-        elif sort_type == 'DESC':
+        elif sort_type == "DESC":
             return super().desc(**kwargs)
         else:
-            raise ValueError('orm.base.models.BaseManager.sort.sort_type')
+            raise ValueError("orm.base.models.BaseManager.sort.sort_type")
 
 
 class BaseModel(models.Model):

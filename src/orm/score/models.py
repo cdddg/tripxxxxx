@@ -1,11 +1,8 @@
-from ..base import models as base
-
-import uuid
-
 from django.db import models
-from core import constants
-from ..supplier import models as supplier
+
+from ..base import models as base
 from ..member import models as member
+from ..supplier import models as supplier
 from ..tour import models as tour
 
 
@@ -23,4 +20,4 @@ class ScoreBaseLog(base.BaseModel):
     description = models.CharField(max_length=2048)
 
     class Meta:
-        db_table = 'score_base_log'
+        db_table = "score_base_log"

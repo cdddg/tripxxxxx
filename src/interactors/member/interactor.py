@@ -1,6 +1,6 @@
-from ..base import BaseInteractor
+from orm import member
 
-from orm import member, score
+from ..base import BaseInteractor
 
 
 class MemberInteractor(BaseInteractor):

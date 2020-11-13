@@ -1,7 +1,9 @@
-from ..base import BaseInteractor
+from django.db import transaction
+
 from orm import supplier
 
-from django.db import transaction
+from ..base import BaseInteractor
+
 
 class SupplierInteractor(BaseInteractor):
     def get_supplier(self, id):

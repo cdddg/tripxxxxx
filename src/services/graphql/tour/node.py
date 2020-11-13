@@ -1,13 +1,12 @@
 import graphene
+
 from .. import base
-
-from core import constants
-
 
 
 class _QueryOrderByInput(graphene.InputObjectType):
     by = graphene.String(required=True)
     sort = graphene.Int()
+
 
 class QueryTourGroupsInput(graphene.InputObjectType):
     page = graphene.Int(required=True)

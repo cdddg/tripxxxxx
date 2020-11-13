@@ -1,8 +1,8 @@
-from ..base import models as base
-from ..member import models as member
+import uuid
 
 from django.db import models
-import uuid
+
+from ..base import models as base
 
 
 class SupplierBase(base.BaseModel):
@@ -17,4 +17,4 @@ class SupplierBase(base.BaseModel):
     logo_url = models.CharField(max_length=1024)
 
     class Meta:
-        db_table = 'supplier_base'
+        db_table = "supplier_base"

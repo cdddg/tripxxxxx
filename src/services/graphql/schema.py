@@ -1,5 +1,6 @@
 import graphene
-from . import base, tour, member
+
+from . import base, member, tour
 
 
 class Query(

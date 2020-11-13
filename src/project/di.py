@@ -1,5 +1,6 @@
-import interactors
 import types
+
+import interactors
 
 
 class InteractorFactory:

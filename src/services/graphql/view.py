@@ -1,5 +1,6 @@
-from graphene_django.views import GraphQLView
 from django.utils.functional import cached_property
+from graphene_django.views import GraphQLView
+
 # from gql.loaders import CommentsByArticleIdLoader
 
 

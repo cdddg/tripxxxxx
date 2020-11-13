@@ -1,10 +1,11 @@
-from ..base import models as base
-from ..supplier import models as supplier
-from django.db import models
 import uuid
 
+from django.db import models
 
 from core import constants
+
+from ..base import models as base
+from ..supplier import models as supplier
 
 
 class TourGroupBase(base.BaseModel):
@@ -18,7 +19,7 @@ class TourGroupBase(base.BaseModel):
     default_price = models.FloatField()
 
     class Meta:
-        db_table = 'tour_group_base'
+        db_table = "tour_group_base"
 
 
 class TourGroupLocation(base.BaseModel):
@@ -28,7 +29,7 @@ class TourGroupLocation(base.BaseModel):
     option = models.IntegerField()
 
     class Meta:
-        db_table = 'tour_group_location'
+        db_table = "tour_group_location"
 
 
 class TourGroupTag(base.BaseModel):
@@ -37,8 +38,8 @@ class TourGroupTag(base.BaseModel):
     tag = models.CharField(max_length=128)
 
     class Meta:
-        db_table = 'tour_group_tag'
-        unique_together = ('tour_group_id', 'tag')
+        db_table = "tour_group_tag"
+        unique_together = ("tour_group_id", "tag")
 
 
 class TourGroupBucket(base.BaseModel):
@@ -57,12 +58,12 @@ class TourGroupBucket(base.BaseModel):
     back_from = models.IntegerField()
 
     class Meta:
-        db_table = 'tour_group_bucket'
-        unique_together = ('tour_group_id', 'date')
+        db_table = "tour_group_bucket"
+        unique_together = ("tour_group_id", "date")
 
 
 class TourBase(base.BaseModel):
     id = models.AutoField(primary_key=True)
 
     class Meta:
-        db_table = 'tour_base'
+        db_table = "tour_base"

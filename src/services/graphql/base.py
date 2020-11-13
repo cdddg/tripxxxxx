@@ -1,14 +1,15 @@
 import datetime
+import time
+import types
 
 # from django.conf import settings
 import graphene
 from graphene.types import Scalar
-from core import constants as _constants
-import types
 
 # from django_graphql_ratelimit import ratelimit as origin_ratelimit
 from graphql.language import ast
-import time
+
+from core import constants as _constants
 
 constants = types.SimpleNamespace()
 constants.GenderType = graphene.Enum.from_enum(_constants.GenderType)
@@ -50,4 +51,4 @@ class HelloWorldNode(graphene.ObjectType):
         description = "first example in project"
 
     def resolve_hello_world(self, info):
-        return 'Hello world! GraphQL'
+        return "Hello world! GraphQL"

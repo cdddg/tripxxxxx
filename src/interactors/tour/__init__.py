@@ -1,2 +1,2 @@
-from .interactor import TourInteractor
 from . import node
+from .interactor import TourInteractor
