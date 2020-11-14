@@ -10,6 +10,7 @@ class TourInteractor(BaseInteractor):
         return tour.models.TourGroupBase(id)
 
     def get_tour_groups(self, input: node.GetTourGroupsInput):
+        tour.models.TourGroupBase.op.filter().all()
         input = input.dict
         page = input.pop("page")
         size = input.pop("size")
@@ -21,7 +22,4 @@ class TourInteractor(BaseInteractor):
 
         rows = tour.models.TourGroupBase.op.raw(raw.get_tour_groups_rows(order_by_field=field, sort_type=sort_type))
         print(rows.query)
-        # for row in rows:
-        #     print(row.dict)
-
         return rows[size * (page - 1) : size * page]

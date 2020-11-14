@@ -16,8 +16,13 @@ class PlatformType(enum.IntEnum):
 
 @enum.unique
 class IsRecommendStatus(enum.IntEnum):
-    OFF = 0
-    ON = 1
+    FALSE = 0
+    TRUE = 1
+
+
+class IsMemberFavorit(enum.IntEnum):
+    FALSE = 0
+    TRUE = 1
 
 
 class SupplierScoreCatagory(enum.IntEnum):
@@ -45,13 +50,13 @@ class TourGroupLocationOpition(enum.IntEnum):
 
 
 class TourGroupTag(enum.Enum):
-    LATE_BACK = 'LATE_BACK'
-    EARLY_GO = 'EARLY_GO'
-    DIRECT_FLIGHT = 'DIRECT_FLIGHT'
-    HOT_TOP = 'HOT_TOP'
-    NO_SHOP = 'NO_SHOP'
-    DOMESTIC_TRAVEL = 'DOMESTIC_TRAVEL'
-    TRIPLE_STIMULUS_VOUCHER = 'TRIPLE_STIMULUS_VOUCHER'
+    LATE_BACK = "LATE_BACK"
+    EARLY_GO = "EARLY_GO"
+    DIRECT_FLIGHT = "DIRECT_FLIGHT"
+    HOT_TOP = "HOT_TOP"
+    NO_SHOP = "NO_SHOP"
+    DOMESTIC_TRAVEL = "DOMESTIC_TRAVEL"
+    TRIPLE_STIMULUS_VOUCHER = "TRIPLE_STIMULUS_VOUCHER"
 
 
 class Currency(enum.IntEnum):
@@ -59,11 +64,11 @@ class Currency(enum.IntEnum):
 
 
 class TourGroupInputOrderBy(enum.Enum):
-    PRICE_ASC = 'PRICE_ASC'
-    PRICE_DESC = 'PRICE_DESC'
-    SCORE_ASC = 'SCORE_ASC'
-    SCORE_DESC = 'SCORE_DESC'
+    PRICE_ASC = "PRICE_ASC"
+    PRICE_DESC = "PRICE_DESC"
+    SCORE_ASC = "SCORE_ASC"
+    SCORE_DESC = "SCORE_DESC"
 
     def parse(self):
-        orderby, sorting = self._name_.split('_')
+        orderby, sorting = self._name_.split("_")
         return orderby.lower(), sorting

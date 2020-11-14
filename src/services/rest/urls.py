@@ -1,7 +1,7 @@
 from django.urls import include, path
 
-from ..rest import _tmp
+from ..rest import fake
 
 urlpatterns = [
-    path("tmp/", include(_tmp.urls)),
+    path("fake/", include(fake.urls)),
 ]

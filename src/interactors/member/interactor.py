@@ -1,4 +1,4 @@
-from orm import member
+from orm import member, score
 
 from ..base import BaseInteractor
 
@@ -10,5 +10,5 @@ class MemberInteractor(BaseInteractor):
     def get_members(self, input):
         return member.models.MemberBase.op.filter(**input.dict)
 
-    # def member_add_favorite(self, input):
-    #     return member.models.MemberFavorite.create(**input.dict)
+    def verify_member_favorite_tour_group(self, member_id, tour_group_id):
+        return score.models.ScoreBaseLog.op.filter(member_id=member_id, tour_group_id=tour_group_id)

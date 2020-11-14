@@ -16,7 +16,7 @@ repos:
     rev: v1.3.0
     hooks:
       - id: flake8
-        args: ["--ignore=E501,W503,E203"]
+        args: ["--ignore=E501,W503,E203,F405"]
       - id: check-json
       # - id: check-yaml
       - id: forbid-new-submodules

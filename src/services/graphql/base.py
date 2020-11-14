@@ -16,6 +16,10 @@ constants.GenderType = graphene.Enum.from_enum(_constants.GenderType)
 constants.PlatformType = graphene.Enum.from_enum(_constants.PlatformType)
 constants.TourGroupLocationOpition = graphene.Enum.from_enum(_constants.TourGroupLocationOpition)
 constants.TourGroupInputOrderBy = graphene.Enum.from_enum(_constants.TourGroupInputOrderBy)
+constants.IsRecommendStatus = graphene.Enum.from_enum(_constants.IsRecommendStatus)
+constants.IsMemberFavorit = graphene.Enum.from_enum(_constants.IsMemberFavorit)
+constants.TourGroupTag = graphene.Enum.from_enum(_constants.TourGroupTag)
+constants.TourGroupLocationOpition = graphene.Enum.from_enum(_constants.TourGroupLocationOpition)
 
 
 class TimeStampScalar(Scalar):

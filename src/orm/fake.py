@@ -105,6 +105,7 @@ class TourGroupBase(factory.django.DjangoModelFactory):
     name = Faker.text()
     is_recommend = Faker.random_element([row.value for row in constants.IsRecommendStatus])
     score = Faker.pyint(1, 5)
+    currency = Faker.random_element([row.value for row in constants.Currency])
     default_price = Faker.pyint()
 
 
@@ -155,7 +156,6 @@ class TourGroupBucket(factory.django.DjangoModelFactory):
 
     tour_group = factory.SubFactory(TourGroupBase)
     date = Faker.date()
-    currency = Faker.random_element([row.value for row in constants.Currency])
     sku = Faker.pyint(500, 1000)
     sell = Faker.pyint(1, 499)
     adult_price = Faker.pyint()

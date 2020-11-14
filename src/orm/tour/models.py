@@ -14,8 +14,9 @@ class TourGroupBase(base.BaseModel):
     supplier_tour_code = models.CharField(max_length=256)
     day_amount = models.IntegerField()
     name = models.CharField(max_length=256)
-    is_recommend = models.IntegerField(constants.IsRecommendStatus.OFF)
+    is_recommend = models.IntegerField(constants.IsRecommendStatus.FALSE)
     score = models.FloatField()
+    currency = models.IntegerField()
     default_price = models.FloatField()
 
     class Meta:
@@ -46,7 +47,6 @@ class TourGroupBucket(base.BaseModel):
     id = models.CharField(primary_key=True, default=uuid.uuid4, editable=False, max_length=255)
     tour_group = models.ForeignKey(TourGroupBase, on_delete=models.CASCADE, null=False)
     date = models.DateField()
-    currency = models.IntegerField()
     sku = models.IntegerField()
     sell = models.IntegerField()
     adult_price = models.FloatField()
