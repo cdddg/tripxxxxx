@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+  net:
+    driver: bridge
+
+services:
+  db:
+    container_name: tripresso_local
+    build:
+      context: .
+      dockerfile: ./dockerfile/mysql.dockerfile
+    ports:
+      - "3306:3306"
+    networks:
+      - net
+
+  web:
+    container_name: tripresso_be
+    build:
+      context: .
+      dockerfile: ./dockerfile/tripresso.dockerfile
+    environment:
+      - BUILD_ENV=local
+    ports:  
+      - 8000:8000  
+    depends_on:
+      - db
+    networks:
+      - net
