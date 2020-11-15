@@ -19,19 +19,19 @@ docker-compose up
 
 ### API
 
-#### insert fake data (`RESTful`)
+#### insert fake data (RESTful)
 
 ```sh
 curl 127.0.0.1:8000/api/v1/rest/fake/insert
 ```
 
-#### clear fake data (`RESTful`)
+#### clear fake data (RESTful)
 
 ```sh
 curl 127.0.0.1:8000/api/v1/rest/fake/clear
 ```
 
-#### get  members (`GraphQL`)
+#### get  members (GraphQL)
 
 127.0.0.1:8000/api/v1/graphql
 
@@ -53,7 +53,7 @@ curl 127.0.0.1:8000/api/v1/rest/fake/clear
 }
 ```
 
-#### get tour_groups (`GraphQL`)
+#### get tour_groups (GraphQL)
 
 127.0.0.1:8000/api/v1/graphql
 
@@ -89,3 +89,7 @@ curl 127.0.0.1:8000/api/v1/rest/fake/clear
 }
 ```
 
+</br>
+
+##### tools
+[vishnubob/wait-for-it](https://github.com/vishnubob/wait-for-it/blob/master/wait-for-it.sh)

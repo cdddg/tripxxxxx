@@ -12,6 +12,10 @@ services:
       dockerfile: ./dockerfile/mysql.dockerfile
     ports:
       - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
     networks:
       - net
 
@@ -22,6 +26,11 @@ services:
       dockerfile: ./dockerfile/tripresso.dockerfile
     environment:
       - BUILD_ENV=local
+    command: bash -c "
+        ./wait-for-it.sh db:3306 &&
+        python manage.py migrate &&
+        python manage.py runserver 0.0.0.0:8000
+      "
     ports:  
       - 8000:8000  
     depends_on:
