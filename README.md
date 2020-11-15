@@ -1,91 +1,88 @@
 ### Start project
 
-1.
 ```sh
-docker-compose build
-```
-
-2.
-```shell
-docker-compose run --rm web python manage.py migrate
-```
-
-3.
-```
-docker-compose up
+docker-compose up --build
 ```
 
 </br>
 
 ### API
 
-#### insert fake data (`RESTful`)
+#### RESTful
 
-```sh
-curl 127.0.0.1:8000/api/v1/rest/fake/insert
-```
+- ##### insert fake data
 
-#### clear fake data (`RESTful`)
+  ```sh
+  curl 127.0.0.1:8000/api/v1/rest/fake/insert
+  ```
 
-```sh
-curl 127.0.0.1:8000/api/v1/rest/fake/clear
-```
+- ##### clear fake data
 
-#### get  members (`GraphQL`)
+  ```sh
+  curl 127.0.0.1:8000/api/v1/rest/fake/clear
+  ```
 
-127.0.0.1:8000/api/v1/graphql
-
-```graphql
-{
-  members(input: {
-  }){
-    platform
-    account
-    surname
-    givenName
-    gender
-    birthday
-    email
-    phone
-    address
-    tripressoCoin
-  }
-}
-```
-
-#### get tour_groups (`GraphQL`)
+#### GraphQL
 
 127.0.0.1:8000/api/v1/graphql
 
-```sh
-{
-  tourGroups(input: {
-    page: 1
-    size: 3
-    orderBy: SCORE_ASC | SCORE_DESC | PRICE_ASC | PRICE_DESC
-  }) {
-    id
-    supplierId
-    supplierTourCode
-    dayAmount
-    name
-    isRecommend
-    defaultPrice
-    score
-    bucket {
-      date
-      sell
-      adultPrice
-      childPrice
-      babyPrice
-      remark
-      goFrom
-      backFrom
+![example](https://raw.githubusercontent.com/cdddg/tripxxxxx/develop/images/graphql_example.png)
+
+- ##### get  members
+
+  ```graphql
+  {
+    members(input: {
+    }){
+      platform
+      account
+      surname
+      givenName
+      gender
+      birthday
+      email
+      phone
+      address
+      tripressoCoin
     }
-    memberFavorite
-    tags
-    locations
   }
-}
-```
+  ```
 
+- ##### get tour_groups
+
+  ```graphql
+  {
+    tourGroups(input: {
+      page: 1
+      size: 3
+      orderBy: SCORE_ASC | SCORE_DESC | PRICE_ASC | PRICE_DESC
+    }) {
+      id
+      supplierId
+      supplierTourCode
+      dayAmount
+      name
+      isRecommend
+      defaultPrice
+      score
+      bucket {
+        date
+        sell
+        adultPrice
+        childPrice
+        babyPrice
+        remark
+        goFrom
+        backFrom
+      }
+      memberFavorite
+      tags
+      locations
+    }
+  }
+  ```
+
+</br>
+
+##### tools
+[vishnubob/wait-for-it](https://github.com/vishnubob/wait-for-it/blob/master/wait-for-it.sh)
